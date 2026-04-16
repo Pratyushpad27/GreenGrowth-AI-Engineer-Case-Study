@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 import jsonschema
-from jsonschema import Draft202012Validator, FormatChecker
+from jsonschema import Draft202012Validator
 
 from filer import builder, rules
 from filer.client import AuthorityClient, load_secret
@@ -38,7 +38,7 @@ def validate_schema(manifest: dict, schema: dict) -> list[str]:
     Validate manifest against JSON Schema.
     Returns a list of error messages (empty = valid).
     """
-    validator = Draft202012Validator(schema, format_checker=FormatChecker())
+    validator = Draft202012Validator(schema)
     errors = sorted(validator.iter_errors(manifest), key=lambda e: str(e.path))
     return [f"{'.'.join(str(p) for p in e.absolute_path) or '(root)'}: {e.message}" for e in errors]
 

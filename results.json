@@ -3,12 +3,12 @@
     {
       "scenario": "01-aurora-borealis",
       "outcome": "accepted",
-      "receipt_id": "2746E3979DB6EF78"
+      "receipt_id": "D354E84BF1F38A4D"
     },
     {
       "scenario": "02-pacific-crest",
       "outcome": "accepted",
-      "receipt_id": "7D3B383F94E37800",
+      "receipt_id": "33E4E5CEFC042305",
       "violations": [
         {
           "ruleId": "R-014",
@@ -27,22 +27,22 @@
     {
       "scenario": "03-star-of-helios",
       "outcome": "accepted",
-      "receipt_id": "41B00D33014F45A2"
+      "receipt_id": "B63D438AFC805FBB"
     },
     {
       "scenario": "04-iron-brigade",
       "outcome": "accepted",
-      "receipt_id": "2F67EAA690D3AFAF"
+      "receipt_id": "EDC767781FEB8B84"
     },
     {
       "scenario": "05-silver-mariner",
       "outcome": "accepted",
-      "receipt_id": "A5CA652F14C1E664"
+      "receipt_id": "7D8286F2E61DDBED"
     },
     {
       "scenario": "06-northern-lights",
       "outcome": "accepted",
-      "receipt_id": "459693AC7E1783BB",
+      "receipt_id": "EE090BBC3C4EBB46",
       "violations": [
         {
           "ruleId": "R-015",

@@ -232,17 +232,14 @@ def _check_r016(manifest: dict) -> list[Violation]:
     """declaredValueTotal must equal sum of container declaredValueUSD with half-away rounding."""
     containers = manifest.get("containers", [])
     computed = sum(
-        float(Decimal(str(c.get("declaredValueUSD", 0))).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
+        Decimal(str(c.get("declaredValueUSD", 0))).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
         for c in containers
     )
-    total = manifest.get("declaredValueTotal", 0)
-    # Compare to cent precision
-    computed_rounded = round(computed, 2)
-    total_rounded = round(float(total), 2)
-    if abs(computed_rounded - total_rounded) > 0.001:
+    total = Decimal(str(manifest.get("declaredValueTotal", 0))).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+    if computed != total:
         return [_violation("R-016", "reject", "/declaredValueTotal",
-                           f"declaredValueTotal {total_rounded} does not match computed sum "
-                           f"{computed_rounded} of container values (V-301)")]
+                           f"declaredValueTotal {total} does not match computed sum "
+                           f"{computed} of container values (V-301)")]
     return []
 
 
