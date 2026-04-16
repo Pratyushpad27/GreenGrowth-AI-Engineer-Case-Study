@@ -1,0 +1,26 @@
+{
+  "_scenarioId": "05-silver-mariner",
+  "_etaOffsetHours": 36,
+  "vessel": {
+    "imoNumber": "IMO9111228",
+    "name": "SILVER MARINER",
+    "flag": "MH",
+    "grossRegisterTons": 41200,
+    "vesselType": "CONTAINER"
+  },
+  "arrival": {
+    "terminal": "CH-A",
+    "voyageNumber": "SM-2026-002",
+    "previousPort": "USOAK"
+  },
+  "containers": [
+    { "containerId": "BAL00001", "type": "BALLAST", "quantity": 0, "declaredValueUSD": 0 }
+  ],
+  "crew": [
+    { "fullName": "HEINRICH BAUMANN",  "nationality": "DE", "role": "MASTER",  "passportNumber": "DE445566", "dateOfBirth": "1971-06-05" },
+    { "fullName": "LARS ERIKSEN",      "nationality": "DK", "role": "OFFICER", "passportNumber": "DK334455", "dateOfBirth": "1984-02-17" },
+    { "fullName": "EMEKA OBUNADIKE",   "nationality": "NG", "role": "OFFICER", "passportNumber": "NG223344", "dateOfBirth": "1990-09-08" },
+    { "fullName": "ARJUN MANOHARAN",   "nationality": "IN", "role": "RATING",  "passportNumber": "IN667788", "dateOfBirth": "1997-04-14" }
+  ],
+  "declaredValueTotal": 0
+}

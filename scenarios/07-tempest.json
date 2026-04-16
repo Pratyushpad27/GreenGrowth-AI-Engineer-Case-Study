@@ -1,0 +1,28 @@
+{
+  "_scenarioId": "07-tempest",
+  "_etaOffsetHours": 48,
+  "vessel": {
+    "imoNumber": "IMO9555668",
+    "name": "TEMPEST",
+    "flag": "SG",
+    "grossRegisterTons": 47500,
+    "vesselType": "CONTAINER"
+  },
+  "arrival": {
+    "terminal": "CH-A",
+    "voyageNumber": "TMP-2026-008",
+    "previousPort": "SGSIN"
+  },
+  "containers": [
+    { "containerId": "SGCU0000001", "type": "DRY", "quantity": 1, "declaredValueUSD": 1234.50 },
+    { "containerId": "SGCU0000002", "type": "DRY", "quantity": 1, "declaredValueUSD": 5678.90 },
+    { "containerId": "SGCU0000003", "type": "DRY", "quantity": 1, "declaredValueUSD": 999.99 }
+  ],
+  "crew": [
+    { "fullName": "WEI CHEN LIM",    "nationality": "SG", "role": "MASTER",  "passportNumber": "SG443322", "dateOfBirth": "1974-12-08" },
+    { "fullName": "RAHUL SUBRAMANIAN", "nationality": "IN", "role": "OFFICER", "passportNumber": "IN667700", "dateOfBirth": "1987-05-29" },
+    { "fullName": "FERDINAND BAUTISTA", "nationality": "PH", "role": "OFFICER", "passportNumber": "PH998811", "dateOfBirth": "1991-04-16" },
+    { "fullName": "AHMET YILMAZ",      "nationality": "TR", "role": "RATING",  "passportNumber": "TR334411", "dateOfBirth": "1996-09-03" }
+  ],
+  "declaredValueTotal": 7913.89
+}

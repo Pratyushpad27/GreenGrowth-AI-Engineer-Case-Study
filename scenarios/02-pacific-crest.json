@@ -1,0 +1,53 @@
+{
+  "_scenarioId": "02-pacific-crest",
+  "_etaOffsetHours": 60,
+  "vessel": {
+    "imoNumber": "IMO9456783",
+    "name": "PACIFIC CREST",
+    "flag": "PA",
+    "grossRegisterTons": 52100,
+    "vesselType": "CONTAINER"
+  },
+  "arrival": {
+    "terminal": "CH-B",
+    "voyageNumber": "PC-119W",
+    "previousPort": "JPYOK"
+  },
+  "containers": [
+    { "containerId": "TGHU8881111", "type": "DRY", "quantity": 1, "declaredValueUSD": 312000.00 },
+    {
+      "containerId": "TGHU8881112",
+      "type": "REF",
+      "quantity": 1,
+      "declaredValueUSD": 87500.00,
+      "temperatureSetpointCelsius": -18.0,
+      "commodityCode": "0303"
+    },
+    {
+      "containerId": "TGHU8881113",
+      "type": "HAZ",
+      "quantity": 1,
+      "declaredValueUSD": 14250.00,
+      "unNumber": 1263,
+      "hazardClass": "3",
+      "properShippingName": "PAINT, FLAMMABLE LIQUID",
+      "grossWeightKg": 18500
+    },
+    {
+      "containerId": "TGHU8881114",
+      "type": "LIQ",
+      "quantity": 1,
+      "declaredValueUSD": 64200.00,
+      "substanceName": "LUBRICATING OIL BASE STOCK",
+      "volumeLiters": 22000
+    }
+  ],
+  "crew": [
+    { "fullName": "DEMETRIOS PAPADOPOULOS", "nationality": "GR", "role": "MASTER",  "passportNumber": "GR773821", "dateOfBirth": "1972-01-18" },
+    { "fullName": "JOSE LUIS HERRERA",      "nationality": "PA", "role": "OFFICER", "passportNumber": "PA445091", "dateOfBirth": "1980-11-22" },
+    { "fullName": "ABEBE TADESSE",          "nationality": "ET", "role": "OFFICER", "passportNumber": "ET998334", "dateOfBirth": "1988-03-15" },
+    { "fullName": "DANNY VILLANUEVA",       "nationality": "PH", "role": "RATING",  "passportNumber": "PH223847", "dateOfBirth": "1993-07-09" },
+    { "fullName": "OLEKSANDR HRYTSENKO",    "nationality": "UA", "role": "RATING",  "passportNumber": "UA112233", "dateOfBirth": "2000-02-28" }
+  ],
+  "declaredValueTotal": 477950.00
+}

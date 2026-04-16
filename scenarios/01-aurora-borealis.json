@@ -1,0 +1,28 @@
+{
+  "_scenarioId": "01-aurora-borealis",
+  "_etaOffsetHours": 48,
+  "vessel": {
+    "imoNumber": "IMO9123453",
+    "name": "AURORA BOREALIS",
+    "flag": "NO",
+    "grossRegisterTons": 38500,
+    "vesselType": "CONTAINER"
+  },
+  "arrival": {
+    "terminal": "CH-A",
+    "voyageNumber": "ABE-2026-014",
+    "previousPort": "NLRTM"
+  },
+  "containers": [
+    { "containerId": "MSCU1234567", "type": "DRY", "quantity": 1, "declaredValueUSD": 48250.00 },
+    { "containerId": "MSCU1234568", "type": "DRY", "quantity": 1, "declaredValueUSD": 17900.50 },
+    { "containerId": "MSCU1234569", "type": "DRY", "quantity": 1, "declaredValueUSD": 132475.00 }
+  ],
+  "crew": [
+    { "fullName": "INGRID HOLMSTRAND",  "nationality": "NO", "role": "MASTER",  "passportNumber": "NO84219",   "dateOfBirth": "1979-04-12" },
+    { "fullName": "PETTER ANDREASSEN", "nationality": "NO", "role": "OFFICER", "passportNumber": "NO19384",   "dateOfBirth": "1985-09-30" },
+    { "fullName": "RAVI SHANKARAN",     "nationality": "IN", "role": "OFFICER", "passportNumber": "IN887234",  "dateOfBirth": "1990-12-04" },
+    { "fullName": "MARIA CRUZ",         "nationality": "PH", "role": "RATING",  "passportNumber": "PH559283",  "dateOfBirth": "1998-06-21" }
+  ],
+  "declaredValueTotal": 198625.50
+}

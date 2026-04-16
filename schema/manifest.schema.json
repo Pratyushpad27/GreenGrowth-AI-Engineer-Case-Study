@@ -1,0 +1,276 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://customs.crescentharbor.example/v3/schema/manifest.schema.json",
+  "title": "Crescent Harbor Cargo Arrival Manifest",
+  "description": "JSON Schema for the Cargo Arrival Manifest as defined in the Crescent Harbor Manifest Filing Specification v3.0. Schema enforcement covers structure, types, regex patterns, enumerations, and numeric ranges. Cross-field business rules (IMO check digit, declared-value sums, filing windows, etc.) are enforced separately at the rules layer per the specification.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifestId",
+    "filer",
+    "vessel",
+    "arrival",
+    "containers",
+    "crew",
+    "declaredValueTotal",
+    "filerSignature"
+  ],
+  "properties": {
+    "manifestId": {
+      "type": "string",
+      "pattern": "^[A-Z0-9-]{12,32}$"
+    },
+    "amendmentSequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "filer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["filerId", "legalName", "contactEmail"],
+      "properties": {
+        "filerId": { "type": "string", "pattern": "^[A-Z]{3}[0-9]{6}$" },
+        "legalName": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "contactEmail": { "type": "string", "format": "email" }
+      }
+    },
+    "vessel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["imoNumber", "name", "flag", "grossRegisterTons", "vesselType"],
+      "properties": {
+        "imoNumber": { "type": "string", "pattern": "^IMO[0-9]{7}$" },
+        "name": { "type": "string", "pattern": "^[A-Z0-9 .-]{1,50}$" },
+        "flag": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "grossRegisterTons": { "type": "integer", "minimum": 501 },
+        "vesselType": {
+          "type": "string",
+          "enum": ["CONTAINER", "BULK", "TANKER", "RORO", "GENERAL"]
+        }
+      }
+    },
+    "arrival": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["terminal", "eta", "voyageNumber", "previousPort"],
+      "properties": {
+        "terminal": { "type": "string", "enum": ["CH-A", "CH-B", "CH-C", "CH-D"] },
+        "eta": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+        },
+        "voyageNumber": { "type": "string", "pattern": "^[A-Z0-9-]{1,16}$" },
+        "previousPort": { "type": "string", "pattern": "^[A-Z]{2}[A-Z]{3}$" }
+      }
+    },
+    "containers": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/container" }
+    },
+    "crew": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/crewMember" }
+    },
+    "declaredValueTotal": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 500000000
+    },
+    "filerSignature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["signerName", "signerTitle", "signedAtUtc"],
+      "properties": {
+        "signerName": { "type": "string", "minLength": 1, "maxLength": 70 },
+        "signerTitle": { "type": "string", "minLength": 1, "maxLength": 70 },
+        "signedAtUtc": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+        }
+      }
+    }
+  },
+
+  "$defs": {
+    "containerCommon": {
+      "type": "object",
+      "required": ["containerId", "type", "quantity", "declaredValueUSD"],
+      "properties": {
+        "containerId": { "type": "string", "pattern": "^[A-Z0-9]{1,16}$" },
+        "type": {
+          "type": "string",
+          "enum": ["DRY", "REF", "HAZ", "LIQ", "VEH", "BALLAST"]
+        },
+        "quantity": { "type": "integer", "minimum": 0 },
+        "declaredValueUSD": {
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 0.01
+        }
+      }
+    },
+
+    "container": {
+      "allOf": [
+        { "$ref": "#/$defs/containerCommon" },
+        {
+          "oneOf": [
+            { "$ref": "#/$defs/dryContainer" },
+            { "$ref": "#/$defs/refContainer" },
+            { "$ref": "#/$defs/hazContainer" },
+            { "$ref": "#/$defs/liqContainer" },
+            { "$ref": "#/$defs/vehContainer" },
+            { "$ref": "#/$defs/ballastContainer" }
+          ]
+        }
+      ]
+    },
+
+    "dryContainer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["containerId", "type", "quantity", "declaredValueUSD"],
+      "properties": {
+        "containerId": { "type": "string" },
+        "type": { "const": "DRY" },
+        "quantity": { "type": "integer", "minimum": 1 },
+        "declaredValueUSD": { "type": "number" }
+      }
+    },
+
+    "refContainer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "containerId",
+        "type",
+        "quantity",
+        "declaredValueUSD",
+        "temperatureSetpointCelsius",
+        "commodityCode"
+      ],
+      "properties": {
+        "containerId": { "type": "string" },
+        "type": { "const": "REF" },
+        "quantity": { "type": "integer", "minimum": 1 },
+        "declaredValueUSD": { "type": "number" },
+        "temperatureSetpointCelsius": {
+          "type": "number",
+          "minimum": -30.0,
+          "maximum": 25.0,
+          "multipleOf": 0.1
+        },
+        "commodityCode": { "type": "string", "pattern": "^[0-9]{4}$" }
+      }
+    },
+
+    "hazContainer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "containerId",
+        "type",
+        "quantity",
+        "declaredValueUSD",
+        "unNumber",
+        "hazardClass",
+        "properShippingName"
+      ],
+      "properties": {
+        "containerId": { "type": "string" },
+        "type": { "const": "HAZ" },
+        "quantity": { "type": "integer", "minimum": 1 },
+        "declaredValueUSD": { "type": "number" },
+        "unNumber": { "type": "integer", "minimum": 1, "maximum": 3500 },
+        "hazardClass": {
+          "type": "string",
+          "enum": [
+            "1",
+            "2.1",
+            "2.2",
+            "2.3",
+            "3",
+            "4.1",
+            "4.2",
+            "4.3",
+            "5.1",
+            "5.2",
+            "6.1",
+            "6.2",
+            "7",
+            "8",
+            "9"
+          ]
+        },
+        "properShippingName": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "priorAuthorizationRef": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "grossWeightKg": { "type": "number", "minimum": 0 }
+      }
+    },
+
+    "liqContainer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "containerId",
+        "type",
+        "quantity",
+        "declaredValueUSD",
+        "substanceName",
+        "volumeLiters"
+      ],
+      "properties": {
+        "containerId": { "type": "string" },
+        "type": { "const": "LIQ" },
+        "quantity": { "type": "integer", "minimum": 1 },
+        "declaredValueUSD": { "type": "number" },
+        "substanceName": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "volumeLiters": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+
+    "vehContainer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["containerId", "type", "quantity", "declaredValueUSD", "vins"],
+      "properties": {
+        "containerId": { "type": "string" },
+        "type": { "const": "VEH" },
+        "quantity": { "type": "integer", "minimum": 1 },
+        "declaredValueUSD": { "type": "number" },
+        "vins": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^[A-HJ-NPR-Z0-9]{17}$" }
+        }
+      }
+    },
+
+    "ballastContainer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["containerId", "type", "quantity", "declaredValueUSD"],
+      "properties": {
+        "containerId": { "type": "string" },
+        "type": { "const": "BALLAST" },
+        "quantity": { "type": "integer", "const": 0 },
+        "declaredValueUSD": { "type": "number", "const": 0 }
+      }
+    },
+
+    "crewMember": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fullName", "nationality", "role", "passportNumber", "dateOfBirth"],
+      "properties": {
+        "fullName": { "type": "string", "minLength": 1, "maxLength": 70 },
+        "nationality": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "role": { "type": "string", "enum": ["MASTER", "OFFICER", "RATING", "OTHER"] },
+        "passportNumber": { "type": "string", "pattern": "^[A-Z0-9]{6,12}$" },
+        "dateOfBirth": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+services:
+  mock-customs:
+    build: .
+    image: case-study/mock-customs:latest
+    container_name: mock-customs
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../schema:/srv/schema:ro
+    environment:
+      CUSTOMS_PORT: "8080"
+      CUSTOMS_SCHEMA_PATH: "/srv/schema/manifest.schema.json"
+      CUSTOMS_SECRETS_PATH: "/srv/secrets.json"

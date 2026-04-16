@@ -1,0 +1,37 @@
+{
+  "_scenarioId": "06-northern-lights",
+  "_etaOffsetHours": 48,
+  "vessel": {
+    "imoNumber": "IMO9333448",
+    "name": "NORTHERN LIGHTS",
+    "flag": "FI",
+    "grossRegisterTons": 29800,
+    "vesselType": "GENERAL"
+  },
+  "arrival": {
+    "terminal": "CH-B",
+    "voyageNumber": "NL-2026-019",
+    "previousPort": "FIHEL"
+  },
+  "containers": [
+    { "containerId": "FIN0000001", "type": "DRY", "quantity": 1, "declaredValueUSD": 24500.00 },
+    {
+      "containerId": "FIN0000002",
+      "type": "HAZ",
+      "quantity": 1,
+      "declaredValueUSD": 1850000.00,
+      "unNumber": 2912,
+      "hazardClass": "7",
+      "properShippingName": "RADIOACTIVE MATERIAL, LSA-I",
+      "priorAuthorizationRef": "PCHCA-RAD-2026-0044",
+      "grossWeightKg": 4200
+    }
+  ],
+  "crew": [
+    { "fullName": "ANNIKA LAHTI",     "nationality": "FI", "role": "MASTER",  "passportNumber": "FI778899", "dateOfBirth": "1976-10-25" },
+    { "fullName": "MIKKO RANTANEN",   "nationality": "FI", "role": "OFFICER", "passportNumber": "FI334455", "dateOfBirth": "1989-03-11" },
+    { "fullName": "ELIN BERGSTROM",   "nationality": "SE", "role": "OFFICER", "passportNumber": "SE556677", "dateOfBirth": "1992-08-19" },
+    { "fullName": "TOMASZ KRAWIEC",   "nationality": "PL", "role": "RATING",  "passportNumber": "PL112233", "dateOfBirth": "1995-11-02" }
+  ],
+  "declaredValueTotal": 1874500.00
+}

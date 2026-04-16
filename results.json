@@ -1,0 +1,75 @@
+{
+  "results": [
+    {
+      "scenario": "01-aurora-borealis",
+      "outcome": "accepted",
+      "receipt_id": "2746E3979DB6EF78"
+    },
+    {
+      "scenario": "02-pacific-crest",
+      "outcome": "accepted",
+      "receipt_id": "7D3B383F94E37800",
+      "violations": [
+        {
+          "ruleId": "R-014",
+          "severity": "warning",
+          "field": "/containers",
+          "message": "Combined HAZ gross weight 18500kg may exceed 25% of vessel GRT (52100 GRT \u2192 limit 13025.0kg) \u2014 warning only (H-201 risk)"
+        },
+        {
+          "ruleId": "R-015",
+          "severity": "warning",
+          "field": "/containers",
+          "message": "Manifest contains HAZ containers; flagged for harbormaster review (\u00a76.1)"
+        }
+      ]
+    },
+    {
+      "scenario": "03-star-of-helios",
+      "outcome": "accepted",
+      "receipt_id": "41B00D33014F45A2"
+    },
+    {
+      "scenario": "04-iron-brigade",
+      "outcome": "accepted",
+      "receipt_id": "2F67EAA690D3AFAF"
+    },
+    {
+      "scenario": "05-silver-mariner",
+      "outcome": "accepted",
+      "receipt_id": "A5CA652F14C1E664"
+    },
+    {
+      "scenario": "06-northern-lights",
+      "outcome": "accepted",
+      "receipt_id": "459693AC7E1783BB",
+      "violations": [
+        {
+          "ruleId": "R-015",
+          "severity": "warning",
+          "field": "/containers",
+          "message": "Manifest contains HAZ containers; flagged for harbormaster review (\u00a76.1)"
+        }
+      ]
+    },
+    {
+      "scenario": "07-tempest",
+      "outcome": "rejected_by_rules",
+      "violations": [
+        {
+          "ruleId": "R-016",
+          "severity": "reject",
+          "field": "/declaredValueTotal",
+          "message": "declaredValueTotal 7913.89 does not match computed sum 7913.39 of container values (V-301)"
+        }
+      ]
+    },
+    {
+      "scenario": "08-polaris",
+      "outcome": "rejected_by_schema",
+      "schema_errors": [
+        "vessel.vesselType: 'PASSENGER' is not one of ['CONTAINER', 'BULK', 'TANKER', 'RORO', 'GENERAL']"
+      ]
+    }
+  ]
+}

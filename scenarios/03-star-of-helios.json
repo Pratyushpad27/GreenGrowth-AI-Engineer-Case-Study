@@ -1,0 +1,52 @@
+{
+  "_scenarioId": "03-star-of-helios",
+  "_etaOffsetHours": 72,
+  "vessel": {
+    "imoNumber": "IMO9876543",
+    "name": "STAR OF HELIOS",
+    "flag": "GR",
+    "grossRegisterTons": 64200,
+    "vesselType": "RORO"
+  },
+  "arrival": {
+    "terminal": "CH-D",
+    "voyageNumber": "SOH-2026-04E",
+    "previousPort": "DEHAM"
+  },
+  "containers": [
+    {
+      "containerId": "VEHCAR000001",
+      "type": "VEH",
+      "quantity": 6,
+      "declaredValueUSD": 285000.00,
+      "vins": [
+        "1HGCM82633A123456",
+        "1HGCM82633A123457",
+        "1HGCM82633A123458",
+        "5YJ3E1EA7HF000001",
+        "5YJ3E1EA7HF000002",
+        "WBA8E9G56JNU12345"
+      ]
+    },
+    {
+      "containerId": "VEHCAR000002",
+      "type": "VEH",
+      "quantity": 4,
+      "declaredValueUSD": 198400.00,
+      "vins": [
+        "WAUZZZ8K1AA000001",
+        "WAUZZZ8K1AA000002",
+        "WDDGF8AB1ER000001",
+        "WDDGF8AB1ER000002"
+      ]
+    }
+  ],
+  "crew": [
+    { "fullName": "NIKOLAOS KARRAS",   "nationality": "GR", "role": "MASTER",  "passportNumber": "GR664423", "dateOfBirth": "1968-08-04" },
+    { "fullName": "STEFAN MUELLER",    "nationality": "DE", "role": "OFFICER", "passportNumber": "DE552234", "dateOfBirth": "1982-05-19" },
+    { "fullName": "AGATHA TYBURSKA",   "nationality": "PL", "role": "OFFICER", "passportNumber": "PL778899", "dateOfBirth": "1991-10-30" },
+    { "fullName": "JUAN MARTIN PRADO", "nationality": "ES", "role": "RATING",  "passportNumber": "ES334455", "dateOfBirth": "1996-12-11" },
+    { "fullName": "OYINKAN BADERINWA", "nationality": "NG", "role": "RATING",  "passportNumber": "NG991122", "dateOfBirth": "1999-03-23" }
+  ],
+  "declaredValueTotal": 483400.00
+}

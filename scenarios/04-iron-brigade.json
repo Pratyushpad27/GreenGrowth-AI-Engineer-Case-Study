@@ -1,0 +1,33 @@
+{
+  "_scenarioId": "04-iron-brigade",
+  "_etaOffsetHours": 84,
+  "vessel": {
+    "imoNumber": "IMO9234563",
+    "name": "IRON BRIGADE",
+    "flag": "LR",
+    "grossRegisterTons": 158300,
+    "vesselType": "TANKER"
+  },
+  "arrival": {
+    "terminal": "CH-C",
+    "voyageNumber": "IB-77",
+    "previousPort": "AEDXB"
+  },
+  "containers": [
+    {
+      "containerId": "TANK0001",
+      "type": "LIQ",
+      "quantity": 1,
+      "declaredValueUSD": 18750000.00,
+      "substanceName": "CRUDE OIL, ARABIAN LIGHT",
+      "volumeLiters": 280000000
+    }
+  ],
+  "crew": [
+    { "fullName": "VLADIMIR KUZNETSOV",  "nationality": "RU", "role": "MASTER",  "passportNumber": "RU224488", "dateOfBirth": "1965-11-09" },
+    { "fullName": "ANDREI VOLKOV",       "nationality": "RU", "role": "OFFICER", "passportNumber": "RU112266", "dateOfBirth": "1978-04-22" },
+    { "fullName": "RAJESH IYER",         "nationality": "IN", "role": "OFFICER", "passportNumber": "IN556677", "dateOfBirth": "1986-07-15" },
+    { "fullName": "ROBERTO ALVARENGA",   "nationality": "PH", "role": "RATING",  "passportNumber": "PH889900", "dateOfBirth": "1994-01-31" }
+  ],
+  "declaredValueTotal": 18750000.00
+}

@@ -1,0 +1,27 @@
+{
+  "_scenarioId": "08-polaris",
+  "_etaOffsetHours": 48,
+  "vessel": {
+    "imoNumber": "IMO9777888",
+    "name": "POLARIS",
+    "flag": "IS",
+    "grossRegisterTons": 21400,
+    "vesselType": "PASSENGER"
+  },
+  "arrival": {
+    "terminal": "CH-A",
+    "voyageNumber": "PLR-2026-011",
+    "previousPort": "ISREY"
+  },
+  "containers": [
+    { "containerId": "POLAR000001", "type": "DRY", "quantity": 1, "declaredValueUSD": 9800.00 },
+    { "containerId": "POLAR000002", "type": "DRY", "quantity": 1, "declaredValueUSD": 14200.00 }
+  ],
+  "crew": [
+    { "fullName": "GUDRUN SIGURDARDOTTIR", "nationality": "IS", "role": "MASTER",  "passportNumber": "IS112277", "dateOfBirth": "1977-02-14" },
+    { "fullName": "BJORN HALLDORSSON",     "nationality": "IS", "role": "OFFICER", "passportNumber": "IS445588", "dateOfBirth": "1986-06-19" },
+    { "fullName": "FREYA OLSEN",           "nationality": "DK", "role": "OFFICER", "passportNumber": "DK998877", "dateOfBirth": "1993-11-27" },
+    { "fullName": "MAGNUS LARSEN",         "nationality": "NO", "role": "RATING",  "passportNumber": "NO331122", "dateOfBirth": "1998-08-08" }
+  ],
+  "declaredValueTotal": 24000.00
+}
